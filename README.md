@@ -80,6 +80,10 @@ so that i can add new products the customer is able to buy.
 - As a Admin, i want to amend products<br>
 so that i can add/remove or update product information.
 
+## UX
+
+### [Mockup]()
+
 ## Technologies Used
 
 - HTML
