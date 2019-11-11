@@ -15,7 +15,7 @@ Table of Contents:
 - [UX](#ux)
   - [Front-End Mockup](#front-end-mockup)
 - [Database](#database)
-  - [MongoDB](#mongodb)
+  - [Postgresql](#mongodb)
     - [Creating the Database](#creating-the-database)
     - [ER Diagram](#er-diagram)
 - [Technologies Used](#technologies-used)
@@ -105,10 +105,14 @@ Tables in db:
 - User
 - Profile
 - Category
-- Products
-- BaseProducts
+- Product
+- BaseProduct
 - Order
 - Rating
+
+
+![ResponsiveView](https://raw.githubusercontent.com/wickyakloe/HI-Ware/Dev/ERM/assets/hiware_erm.png "HI-Ware Database ERM")
+
 
 ## Testing
 
