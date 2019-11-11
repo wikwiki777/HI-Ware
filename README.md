@@ -1,6 +1,6 @@
 Travis-CI Here
 
-# HE-Ware
+# HI-Ware
 ### <i>Webshop for High-End Computer Hardware</i>
 
 ![ResponsiveView](https://link.to.mobile.web.preview.image "Mobile and Desktop preview")
@@ -118,5 +118,5 @@ Models, Views, Forms Tests
 ### Local
 
 ## Credits
-
+- Thanks to uxwing.com for providing the free [icon](https://uxwing.com/microchip-icon/)
 ## Media
