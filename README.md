@@ -82,7 +82,7 @@ so that i can add/remove or update product information.
 
 ## UX
 
-### [Mockup]()
+### [Mockup](https://github.com/wickyakloe/HI-Ware/master/Mockup/assets/mockup/index.html)
 
 ## Technologies Used
 
