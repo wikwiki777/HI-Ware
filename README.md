@@ -1,6 +1,6 @@
 Travis-CI Here
 
-# HE-Ware
+# HI-Ware
 ### <i>Webshop for High-End Computer Hardware</i>
 
 ![ResponsiveView](https://link.to.mobile.web.preview.image "Mobile and Desktop preview")
@@ -80,6 +80,10 @@ so that i can add new products the customer is able to buy.
 - As a Admin, i want to amend products<br>
 so that i can add/remove or update product information.
 
+## UX
+
+### [Mockup](https://github.com/wickyakloe/HI-Ware/master/Mockup/assets/mockup/index.html)
+
 ## Technologies Used
 
 - HTML
@@ -118,5 +122,5 @@ Models, Views, Forms Tests
 ### Local
 
 ## Credits
-
+- Thanks to uxwing.com for providing the free [icon](https://uxwing.com/microchip-icon/)
 ## Media
