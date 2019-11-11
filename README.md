@@ -1,4 +1,4 @@
-Travis-CI Here
+[![Build Status](https://travis-ci.org/wickyakloe/HI-Ware.svg?branch=master)](https://travis-ci.org/wickyakloe/HI-Ware)
 
 # HI-Ware
 ### <i>Webshop for High-End Computer Hardware</i>
