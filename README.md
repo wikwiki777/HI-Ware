@@ -124,6 +124,34 @@ Models, Views, Forms Tests
 ### Heroku
 
 ### Local
+- Clone this repo `git clone https://github.com/wickyakloe/HI-Ware.git`
+or [download](https://github.com/wickyakloe/HI-Ware/archive/master.zip) and unzip into a directory or python3 virtualenv
+
+- Install the project dependancies with `pip install -r requirements.txt`
+
+- Create the following `.env` file in the root directory
+
+```.env
+# Environment variables used by python-dotenv
+# Put variables here and use with os.getenv()
+
+# Comment DEVELOPEMENT out or set to empty for DEBUG = False
+DEVELOPMENT=1
+
+# settings.py - Secret key
+SECRET_KEY="3(0c*ty9q5#53x_d2uo6+a1rkf@d%(ru_65uqfodn!es^r9dzc"
+
+# settings.py - DEV DB
+# replace i.e. <username> with actual value
+DEV_DATABASE_URL="postgres://<username>:<password>@<ip>:<port>/<dbname>"
+
+# settings.py - PROD DB
+PROD_DATABASE_URL=""
+```
+
+- Migrate with `./manage.py migrate`
+
+- Run the server locally  `./manage.py runserserver`
 
 ## Credits
 - Thanks to uxwing.com for providing the free [icon](https://uxwing.com/microchip-icon/)
