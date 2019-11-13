@@ -11,11 +11,12 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-import env
 import dj_database_url
+from dotenv import load_dotenv
+load_dotenv()
 
 
-if os.environ.get("DEVELOPMENT"):
+if os.getenv("DEVELOPMENT"):
     development = True
 else:
     development = False
@@ -91,11 +92,11 @@ WSGI_APPLICATION = 'hiware.wsgi.application'
 
 if development:
     DATABASES = {
-        'default': dj_database_url.parse(os.environ.get("DEV_DATABASE_URL"))
+        'default': dj_database_url.parse(os.getenv("DEV_DATABASE_URL"))
     }
 else:
     DATABASES = {
-        'default': dj_database_url.parse(os.environ.get("PROD_DATABASE_URL"))
+        'default': dj_database_url.parse(os.getenv("PROD_DATABASE_URL"))
     }
 
 # Password validation

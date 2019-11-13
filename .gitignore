@@ -3,6 +3,6 @@
 /lib
 *.pyc
 __pycache__/
-env.py
+.env
 .vscode
 *.sqlite3
