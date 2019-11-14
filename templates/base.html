@@ -1,0 +1,63 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+    <title>HI-Ware:High-End PC Hardware&Components</title>
+  </head>
+  <body>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            HI <img src="{% static 'img/microchip.svg' %}" alt="processorlogo"> Ware
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav text-right">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"><i class="fas fa-home"></i></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Motherboards</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Processors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Graphics Cards</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="#">Cases</a>
+                    </li
+            </ul>
+        </div>
+        <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-warning my-2 my-sm-0" type="submit">Search</button>
+             </form>
+        <span class="navbar-text pl-4">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="button">
+                <i class="fas fa-dolly fa-lg"></i>
+                <span class="badge badge-danger">4</span>
+            </button>
+        </span>  
+        <span class="navbar-text pl-2">
+            <button class="btn btn-outline-light my-2 my-sm-0">Login <i class="fas fa-sign-in-alt fa-lg"></i></button>
+        </span>    
+    </nav>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  </body>
+</html>
