@@ -139,6 +139,7 @@ or [download](https://github.com/wickyakloe/HI-Ware/archive/master.zip) and unzi
 DEVELOPMENT=1
 
 # settings.py - Secret key
+# generate one here https://miniwebtool.com/django-secret-key-generator/
 SECRET_KEY="3(0c*ty9q5#53x_d2uo6+a1rkf@d%(ru_65uqfodn!es^r9dzc"
 
 # settings.py - DEV DB
