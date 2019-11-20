@@ -37,7 +37,7 @@
                 </li>
                 <li class="nav-item">
                         <a class="nav-link" href="#">Cases</a>
-                    </li
+                </li>
             </ul>
         </div>
         <form class="form-inline">
@@ -49,11 +49,33 @@
                 <i class="fas fa-dolly fa-lg"></i>
                 <span class="badge badge-danger">4</span>
             </button>
-        </span>  
+        </span>
+        {% if user.is_authenticated %}
+        <span class="navbar-text pl-2">
+            <button class="btn btn-outline-light my-2 my-sm-0">Logout <i class="fas fa-sign-out-alt fa-lg"></i></button>
+        </span>
+        {% else %}
         <span class="navbar-text pl-2">
             <button class="btn btn-outline-light my-2 my-sm-0">Login <i class="fas fa-sign-in-alt fa-lg"></i></button>
-        </span>    
+        </span>
+        {% endif %}    
     </nav>
+    {% if messages %}
+    <div class="container my-2">
+        {% for message in messages %}
+        <div class="alert alert-info alert-dismissible fade show text-center" role="alert">
+            <strong>{{ message }}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div> 
+        {% endfor %}
+    </div>
+    {% endif %}
+    <section class="container-fluid">
+        {% block content %}
+        {% endblock %}
+    </section>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
