@@ -2,8 +2,6 @@ from django.shortcuts import render
 from accounts.forms import UserLoginForm
 from django.contrib.auth.models import User
 from django.contrib import auth, messages
-from django.core.exceptions import ObjectDoesNotExist
-
 
 
 # Create your views here.
@@ -19,18 +17,13 @@ def login(request):
                                      username=username,
                                      password=password)
 
-            try:
-                User.objects.get(username=username)
-                user_exist = True
-            except ObjectDoesNotExist:
-                user_exist = False
-                login_form.add_error("username", "Username does not exist")
-
             if user:
                 auth.login(user=user, request=request)
                 messages.success(request, "You are logged in")
-            elif user_exist:
-                login_form.add_error("password", "Incorrect Password")
+            else:
+                messages.error(request, "Incorrect Username or Password.")
+                # Consider usage for more descriptive feedback to user
+                # login_form.add_error("password", "Incorrect Username Password combination")
 
     else:
         login_form = UserLoginForm()
