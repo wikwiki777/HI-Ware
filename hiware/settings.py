@@ -91,17 +91,13 @@ WSGI_APPLICATION = 'hiware.wsgi.application'
 #     }
 # }
 
-if "DATABASE_URL" in os.environ:
+if development:
     DATABASES = {
-        'default': dj_database_url.parse(os.getenv("DATABASE_URL"))
+        'default': dj_database_url.parse(os.getenv("DEV_DATABASE_URL"))
     }
 else:
-    print("Database url not found. Using SQlite3 instead")
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
+        'default': dj_database_url.parse(os.getenv("PROD_DATABASE_URL"))
     }
 
 # Password validation
