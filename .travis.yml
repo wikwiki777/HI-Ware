@@ -1,11 +1,12 @@
 language: python
-python: "3.7"
-# before_install:
-#   - sudo apt update
-#   - sudo apt install firefox-geckodriver
-install: "pip install -r requirements.txt"
-# before_script:
-#   - sh python ./manage.py runserver
+python: 
+  - "3.7"
+install: 
+  - "pip install -r requirements.txt"
+services:
+  - postgresql
+before_script:
+  - psql -c 'create database hiware;' -U postgres
+  - export DATABASE_URL="postgres://postgres@localhost:5432/hiware"
 script:
   - SECRET_KEY="whatever" ./manage.py test
-  # - python functional_tests.py
