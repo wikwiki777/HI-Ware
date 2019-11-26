@@ -1,9 +1,7 @@
 from django.shortcuts import render
-from accounts.forms import UserLoginForm
+from accounts.forms import UserLoginForm, UserRegistrationForm
 from django.contrib.auth.models import User
 from django.contrib import auth, messages
-from django.core.exceptions import ObjectDoesNotExist
-
 
 
 # Create your views here.
@@ -19,19 +17,31 @@ def login(request):
                                      username=username,
                                      password=password)
 
-            try:
-                User.objects.get(username=username)
-                user_exist = True
-            except ObjectDoesNotExist:
-                user_exist = False
-                login_form.add_error("username", "Username does not exist")
-
             if user:
                 auth.login(user=user, request=request)
                 messages.success(request, "You are logged in")
-            elif user_exist:
-                login_form.add_error("password", "Incorrect Password")
+            else:
+                messages.error(request, "Incorrect Username or Password.")
+                # Consider usage for more descriptive feedback to user
+                # login_form.add_error("password", "Incorrect Username Password combination")
 
     else:
         login_form = UserLoginForm()
     return render(request, "login.html", {"login_form": login_form})
+
+
+def registration(request):
+    """Render the registration page."""
+
+    if request.method == "POST":
+        registration_form = UserRegistrationForm(request.POST)
+
+        if registration_form.is_valid():
+            registration_form.save()
+            messages.success(request, "You have succssfully registered")
+
+    else:
+        registration_form = UserRegistrationForm()
+
+    return render(request, "registration.html",
+                  {"registration_form": registration_form})

@@ -111,7 +111,7 @@ Tables in db:
 - Rating
 
 
-![ResponsiveView](https://raw.githubusercontent.com/wickyakloe/HI-Ware/Dev/ERM/assets/hiware_erm.png "HI-Ware Database ERM")
+![ResponsiveView](https://raw.githubusercontent.com/wickyakloe/HI-Ware/master/assets/hiware_erm.png "HI-Ware Database ERM")
 
 
 ## Testing
