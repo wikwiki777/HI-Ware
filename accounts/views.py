@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from accounts.forms import UserLoginForm
+from accounts.forms import UserLoginForm, UserRegistrationForm
 from django.contrib.auth.models import User
 from django.contrib import auth, messages
 
@@ -28,3 +28,20 @@ def login(request):
     else:
         login_form = UserLoginForm()
     return render(request, "login.html", {"login_form": login_form})
+
+
+def registration(request):
+    """Render the registration page."""
+
+    if request.method == "POST":
+        registration_form = UserRegistrationForm(request.POST)
+
+        if registration_form.is_valid():
+            registration_form.save()
+            messages.success(request, "You have succssfully registered")
+
+    else:
+        registration_form = UserRegistrationForm()
+
+    return render(request, "registration.html",
+                  {"registration_form": registration_form})

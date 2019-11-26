@@ -9,7 +9,7 @@ class CustomerModelTest(TestCase):
     - Check that the data is created in the db.
     """
 
-    def test_create_customer_account(self):
+    def test_create_user_account(self):
         username = "TestCustomer"
         email = "testcustomer@email.com"
         password = "testpassword1"

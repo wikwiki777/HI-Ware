@@ -55,11 +55,15 @@
         </span>
         {% if user.is_authenticated %}
         <span class="navbar-text pl-2">
-            <button class="btn btn-outline-light my-2 my-sm-0">Logout <i class="fas fa-sign-out-alt fa-lg"></i></button>
+            <a href="#">
+                <button class="btn btn-outline-light my-2 my-sm-0">Logout <i class="fas fa-sign-out-alt fa-lg"></i></button>
+            </a>
         </span>
         {% else %}
         <span class="navbar-text pl-2">
-            <button class="btn btn-outline-light my-2 my-sm-0">Login <i class="fas fa-sign-in-alt fa-lg"></i></button>
+            <a href="{% url 'login' %}">
+                <button class="btn btn-outline-light my-2 my-sm-0">Login <i class="fas fa-sign-in-alt fa-lg"></i></button>
+            </a>
         </span>
         {% endif %}
     </nav>
