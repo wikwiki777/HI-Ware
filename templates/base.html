@@ -55,7 +55,7 @@
         </span>
         {% if user.is_authenticated %}
         <span class="navbar-text pl-2">
-            <a href="#">
+            <a href="{% url 'logout' %}">
                 <button class="btn btn-outline-light my-2 my-sm-0">Logout <i class="fas fa-sign-out-alt fa-lg"></i></button>
             </a>
         </span>

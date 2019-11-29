@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 from accounts.forms import UserLoginForm, UserRegistrationForm
 from django.contrib.auth.models import User
 from django.contrib import auth, messages
@@ -51,3 +51,10 @@ def profile(request):
     """Render the profile page"""
     user = User.objects.get(email=request.user.email)
     return render(request, "profile.html", {"profile": user})
+
+
+def logout(request):
+    """Log the user out and redirect."""
+    auth.logout(request)
+    messages.success(request, 'You have successfully been logged out!')
+    return redirect(reverse('login'))
