@@ -42,3 +42,12 @@ class AccountsPageTest(TestCase):
         self.assertTemplateUsed(response, "profile.html")
         self.assertIn(b"<title>HI-Ware: Profile</title>", response.content)
         self.assertIn(b"TestUser@testemail.com", response.content)
+
+    def test_user_logout_works(self):
+        """Test user is logged out and redirected."""
+        self.client.login(username="TestUser", password="testPassword1")
+        response = self.client.get("/accounts/logout", follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "login.html")
+        self.assertIn(b"You have successfully been logged out!",
+                      response.content)
