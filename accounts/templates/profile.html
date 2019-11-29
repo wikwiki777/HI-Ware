@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block page_title %}HI-Ware: Profile{% endblock %}
+{% block content %}
+<div class="row justify-content-md-center">
+    <div class="col-lg-3 bg-light">
+        <div class="row text-center h-100">
+            <div class="col-12 pt-5">
+                <h3 class="">
+                    {{ profile.first_name}}'s
+                </h3>
+                <p>user profile</p>
+            </div>
+            <div class="col-12 pt-5 px-0">
+                    <button type="button" class="btn btn-light btn-lg btn-block">Profile</button>
+                <button type="button" class="btn btn-light btn-lg btn-block">Cart</button>
+                <button type="button" class="btn btn-light btn-lg btn-block">Shipping Address</button>
+                <button type="button" class="btn btn-light btn-lg btn-block">Payment Info</button>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        {{ profile.email }}
+    </div>
+</div>
+{% endblock %}
