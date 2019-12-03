@@ -2,7 +2,6 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from django.core import mail
 from django.template.loader import get_template
-from django.contrib.auth.hashers import PBKDF2PasswordHasher
 from django.contrib.auth.tokens import (PasswordResetTokenGenerator,
                                         int_to_base36)
 
