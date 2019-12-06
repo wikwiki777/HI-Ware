@@ -8,3 +8,4 @@ class BaseProductsAdmin(admin.ModelAdmin):
 
 admin.site.register(models.Category)
 admin.site.register(models.BaseProduct, BaseProductsAdmin)
+admin.site.register(models.Product)
