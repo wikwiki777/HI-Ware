@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
+    'products',
 ]
 
 MIDDLEWARE = [
@@ -144,3 +145,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+# Send email to backend in console
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
