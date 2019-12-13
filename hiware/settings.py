@@ -146,5 +146,11 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
+# Media directory and url
+# https://docs.djangoproject.com/en/3.0/ref/settings/#std:setting-MEDIA_ROOT
+
+MEDIA_ROOT = 'media/'
+MEDIA_URL = '/media/'
+
 # Send email to backend in console
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
