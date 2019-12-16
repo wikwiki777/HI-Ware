@@ -15,6 +15,9 @@ class BaseProduct(models.Model):
     category = models.OneToOneField(Category, on_delete=models.CASCADE)
     created_date = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.category.name
+
 
 class Product(models.Model):
     baseproduct = models.ForeignKey(BaseProduct, on_delete=models.CASCADE)
