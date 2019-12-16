@@ -8,38 +8,32 @@
             <i>Intel, Asus, Gigabyte, MSI</i>
         </p>
         <p>
-          <a href="#" class="btn btn-danger my-2 font-weight-bold">Browse Products</a>
+          <a href="#" class="btn btn-dark my-2 font-weight-bold">Browse Products</a>
         </p>
       </div>
 </div>
 <div class="container">
-    <h2>Deals of the week!</h2>
+    <h2>New Products:</h2>
     <div class="row">
+        {% for product in new_products %}
         <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                <img src="{{ MEDIA_URL }}mb_ROG_STRIX_Z390-E_GAMING.jpeg" alt="">
+            <div class="card mb-4 shadow">
+                <img class="card-img" src="{{ MEDIA_URL }}{{ product.images }}" alt="product_image">
+                <div class="card-img-overlay">
+                    <h4 class="card-title text-white font-weight-bold"><u><i>{{ product.price }} EUR</i></u></h4>
+                </div>
                 <div class="card-body">
-                    testor
+                    <h5 class="card-title">{{ product.brand }}</h5>
+                    <h6 class="card-title">{{ product.model }}</h6>
+                    <p class="card-text">
+                        {{ product.specifications.Chipset }}<br>
+                        {{ product.specifications.CPU }}                        
+                    </p>
+                    <a href="#" class="btn btn-danger btn-block ml-0"><strong>View</strong></a>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                test
-                <div class="card-body">
-                    testor
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                test
-                <div class="card-body">
-                    testor
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </div>
-
 {% endblock %}

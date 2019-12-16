@@ -17,7 +17,7 @@ class BaseProduct(models.Model):
 
 
 class Product(models.Model):
-    baseproduct = models.OneToOneField(BaseProduct, on_delete=models.CASCADE)
+    baseproduct = models.ForeignKey(BaseProduct, on_delete=models.CASCADE)
     brand = models.CharField(max_length=30)
     model = models.CharField(max_length=30)
     description = models.TextField(max_length=500)
