@@ -24,6 +24,7 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
+    path('admin/doc/', include('django.contrib.admindocs.urls')),
     path('admin/', admin.site.urls),
     path('', index, name='index'),
     path('products/', products, name='products'),
