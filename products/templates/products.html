@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block page_title %}HI-Ware: High-End PC Hardware{% endblock %}
+{% block content %}
+<nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page"><a href="#">Products</a></li>
+        </ol>
+      </nav>
+<div class="row">
+    <div class="col-md-3">
+            <ul class="list-group">
+                    <li class="list-group-item">Cras justo odio</li>
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item">Morbi leo risus</li>
+                    <li class="list-group-item">Porta ac consectetur ac</li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+    </div>
+    <div class="container">
+            <h2>All Products:</h2>
+            <div class="row">
+                {% for product in products %}
+                <div class="col-md-4">
+                        <div class="card-header text-center bg-warning pb-0">
+                            <h4 class="font-weight-bolder">{{ product.price }} EUR</h4>
+                        </div>
+                    <div class="card mb-4 shadow text-white" style="background-color: black;">
+                        <img class="card-img" src="{{ MEDIA_URL }}{{ product.images }}" alt="product_image">
+                        <div class="card-body h-25">
+                            <h5 class="card-title">{{ product.brand }}</h5>
+                            <h6 class="card-title">{{ product.model }}</h6>
+                            <p class="card-text">
+                                {{ product.description | truncatewords:15}}                      
+                            </p>
+                            <a href="#" class="btn btn-danger btn-block ml-0"><strong>View</strong></a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+</div>
+{% endblock %}
