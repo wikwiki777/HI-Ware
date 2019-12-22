@@ -28,8 +28,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('products/', views.products, name='products'),
-    path('products/motherboards/', views.motherboards, name='motherboards'),
-    path('products/processors/', views.processors, name='processors'),
-    path('products/graphics/', views.graphics, name='graphics'),
+    path('products/motherboards/', views.products, name='motherboards'),
+    path('products/processors/', views.products, name='processors'),
+    path('products/graphics/', views.products, name='graphics'),
     path('accounts/', include(accounts_urls)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
