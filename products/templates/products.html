@@ -47,7 +47,7 @@
                         <p class="card-text">
                             {{ product.description | truncatewords:15}}
                         </p>
-                        <a href="#" class="btn btn-danger btn-block ml-0"><strong>View</strong></a>
+                        <a href="{% url 'product_details' product.id %}" class="btn btn-danger btn-block ml-0"><strong>View</strong></a>
                     </div>
                 </div>
             </div>
