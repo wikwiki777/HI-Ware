@@ -51,3 +51,12 @@ def products(request):
         "categories": category, "processors": processors,
         "graphics": graphics_cards
     })
+
+
+def product_details(request, id):
+    """Render the products detail page"""
+    product = Product.objects.get(pk=id)
+
+    return render(request, "product_details.html", {
+        "product": product
+    })
