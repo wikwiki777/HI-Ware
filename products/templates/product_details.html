@@ -12,16 +12,19 @@
         <div class="card" style="width: 18rem;">
             <img src="{{ MEDIA_URL }}{{product.images}}" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">EUR {{product.price}}</h5>
-              <div class="input-group input-group-sm mb-3">
+              <h5 class="card-title text-center">EUR {{product.price}}</h5>
+              <form method="POST" action="{% url 'add_to_cart' product.id %}" class="col-8">
+                {% csrf_token %}
+              <div class="input-group input-group-sm ml-5">
                 <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroup-sizing-sm">Qty</span>
+                  <span class="input-group-text font-weight-bold" id="inputGroup-sizing-sm">Qty</span>
                 </div>
-                <input type="text" class="form-control text-center" aria-label="quantity_input" aria-describedby="inputGroup-sizing-sm" value="1">
+                <input type="number" name="quantity" class="form-control text-center font-weight-bold" aria-label="quantity" aria-describedby="inputGroup-sizing-sm" min="1" max="10" value="1">
                 <div class="input-group-append">
-                    <button class="btn btn-success" type="button" id="button-addon2">Buy</button>
+                    <button class="btn btn-success font-weight-bolder" type="submit" id="button-addon2">Buy</button>
                   </div>
               </div>
+              </form>      
             </div>
           </div>
     </div>

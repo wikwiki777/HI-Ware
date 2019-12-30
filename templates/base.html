@@ -48,10 +48,12 @@
             <button class="btn btn-warning my-2 my-sm-0" type="submit">Search</button>
         </form>
         <span class="navbar-text pl-4">
+            <a href="{% url 'view_cart' %}">
             <button class="btn btn-outline-light my-2 my-sm-0" type="button">
                 <i class="fas fa-dolly fa-lg"></i>
-                <span class="badge badge-danger">4</span>
+                <span class="badge badge-danger">{{cart_items|length}}</span>
             </button>
+        </a>
         </span>
         {% if user.is_authenticated %}
         <span class="navbar-text pl-2">
