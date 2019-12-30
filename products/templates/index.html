@@ -19,9 +19,6 @@
         <div class="col-md-4">
             <div class="card mb-4 shadow">
                 <img class="card-img" src="{{ MEDIA_URL }}{{ product.images }}" alt="product_image">
-                <div class="card-img-overlay">
-                    <h4 class="card-title text-white font-weight-bold"><u><i>{{ product.price }} EUR</i></u></h4>
-                </div>
                 <div class="card-body">
                     <h5 class="card-title">{{ product.brand }}</h5>
                     <h6 class="card-title">{{ product.model }}</h6>
@@ -29,7 +26,7 @@
                         {{ product.specifications.Chipset }}<br>
                         {{ product.specifications.CPU }}                        
                     </p>
-                    <a href="#" class="btn btn-danger btn-block ml-0"><strong>View</strong></a>
+                    <a href="{% url 'product_details' product.id %}" class="btn btn-danger btn-block ml-0"><strong>View</strong></a>
                 </div>
             </div>
         </div>

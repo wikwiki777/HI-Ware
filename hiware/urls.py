@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from accounts import urls as accounts_urls
 from products import views
+from cart import urls as urls_cart
 # Only used in Dev
 # https://docs.djangoproject.com/en/3.0/howto/static-files/#serving-files-uploaded-by-a-user-during-development
 from django.conf import settings
@@ -33,4 +34,5 @@ urlpatterns = [
     path('products/graphics/', views.products, name='graphics'),
     path('products/<int:id>/', views.product_details, name='product_details'),
     path('accounts/', include(accounts_urls)),
+    path('cart/', include(urls_cart)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
