@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Product, BaseProduct, Category
 from django.utils import timezone
+from django.contrib.postgres.search import SearchVector
 
 
 def index(request):
@@ -60,3 +61,9 @@ def product_details(request, id):
     return render(request, "product_details.html", {
         "product": product
     })
+
+
+def search_all(request):
+    """Render the search results page"""
+    products = Product.objects.annotate(search=SearchVector('brand', 'model', 'description')).filter(search=request.GET['search'])
+    return render(request, "products.html", {"products": products})

@@ -29,6 +29,8 @@
         <h2>
             {% if request.path|cut:"/products/" == "" %}
             All Products
+            {% elif "search" in request.path %}
+            Search results for "{{ request.get_full_path|cut:"/search/?search="}}"
             {% else %}
             {{ request.path|cut:"/products/"|cut:"/"|capfirst}}
             {% endif %}

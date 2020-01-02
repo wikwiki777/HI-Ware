@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'products',
     'cart',
     'django.contrib.admindocs',
+    'django.contrib.postgres',
 ]
 
 MIDDLEWARE = [
