@@ -49,13 +49,18 @@
         </form>
         <span class="navbar-text pl-4">
             <a href="{% url 'view_cart' %}">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="button">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="button" data-toggle="tooltip" data-placement="bottom" title="Cart">
                 <i class="fas fa-dolly fa-lg"></i>
                 <span class="badge badge-danger">{{cart_items|length}}</span>
             </button>
         </a>
         </span>
         {% if user.is_authenticated %}
+        <span class="navbar-text pl-2">
+            <a href="{% url 'profile' %}">
+                <button class="btn btn-outline-light my-2 my-sm-0" data-toggle="tooltip" data-placement="bottom" title="Profile"><i class="fas fa-user-circle fa-lg"></i></button>
+            </a>
+        </span>
         <span class="navbar-text pl-2">
             <a href="{% url 'logout' %}">
                 <button class="btn btn-outline-light my-2 my-sm-0">Logout <i class="fas fa-sign-out-alt fa-lg"></i></button>

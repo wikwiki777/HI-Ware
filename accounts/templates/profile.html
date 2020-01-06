@@ -5,7 +5,8 @@
     <div class="col-lg-3">
         <div class="row text-center">
             <div class="col-12 pt-5">
-                <h3 class="">
+                <h2><i class="fas fa-user-circle fa-lg"></i></h2>
+                <h3>
                     {{ profile.first_name}}'s
                 </h3>
                 <p>user profile</p>
@@ -54,44 +55,81 @@
             </div>
         </form>
         <h3>Shipping information</h3>
-        <form>
+        <div class="form-group row">
+            <label for="full_name" class="col-sm-2 col-form-label">Fullname</label>
+            <div class="col-sm-3">
+                <input type="text" readonly class="form-control" id="full_name"
+                    value="{{ profile.first_name }} {{ profile.last_name }}">
+            </div>
+        </div>
+        <form method="POST">
+            {% csrf_token %}
             <div class="form-group row">
-                <label for="full_name" class="col-sm-2 col-form-label">Fullname</label>
-                <div class="col-sm-2">
-                    <input type="text" readonly class="form-control-plaintext" id="full_name"
-                        value="{{ profile.first_name }} {{ profile.last_name }}">
+                <div class="col-sm-2 col-form-label">{{ shipping_form.street_address1.label_tag }}</div>
+                <div class="col-sm-3">
+                    <input type="text"
+                        class="form-control {% if shipping_form.street_address1.errors %}is-invalid{% endif %}"
+                        id="id_street_address1" name="street_address1"
+                        value="{{ shipping_form.street_address1.value|default:'' }}" required>
+                    {% if shipping_form.street_address1.errors %}
+                    <div class="invalid-feedback">
+                        {{ shipping_form.street_address1.errors }}
+                    </div>
+                    {% endif %}
                 </div>
             </div>
             <div class="form-group row">
-                <label for="street_address1" class="col-sm-2 col-form-label">Street address 1</label>
-                <div class="col-sm-2">
-                    <input type="text" readonly class="form-control-plaintext" id="street_address1"
-                        value="{{ profile.email }}">
+                <div class="col-sm-2 col-form-label">{{ shipping_form.street_address2.label_tag }}</div>
+                <div class="col-sm-3">
+                    <input type="text"
+                        class="form-control {% if shipping_form.street_address2.errors %}is-invalid{% endif %}"
+                        id="id_street_address2" name="street_address2"
+                        value="{{ shipping_form.street_address2.value|default:'' }}" required>
+                    {% if shipping_form.street_address2.errors %}
+                    <div class="invalid-feedback">
+                        {{ shipping_form.street_address2.errors }}
+                    </div>
+                    {% endif %}
                 </div>
             </div>
             <div class="form-group row">
-                <label for="street_address2" class="col-sm-2 col-form-label">Street address 2</label>
-                <div class="col-sm-2">
-                    <input type="text" readonly class="form-control-plaintext" id="street_address2"
-                        value="{{ profile.email }}">
+                <div class="col-sm-2 col-form-label">{{ shipping_form.postcode.label_tag }}</div>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control {% if shipping_form.postcode.errors %}is-invalid{% endif %}"
+                        id="id_postcode" name="postcode" value="{{ shipping_form.postcode.value|default:'' }}" required>
+                    {% if shipping_form.postcode.errors %}
+                    <div class="invalid-feedback">
+                        {{ shipping_form.postcode.errors }}
+                    </div>
+                    {% endif %}
                 </div>
             </div>
             <div class="form-group row">
-                <label for="postcode" class="col-sm-2 col-form-label">Postal code</label>
-                <div class="col-sm-2">
-                    <input type="text" readonly class="form-control-plaintext" id="postcode"
-                        value="{{ profile.email }}">
+                <div class="col-sm-2 col-form-label">{{ shipping_form.city.label_tag }}</div>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control {% if shipping_form.city.errors %}is-invalid{% endif %}"
+                        id="id_city" name="city" value="{{ shipping_form.city.value|default:'' }}" required>
+                    {% if shipping_form.city.errors %}
+                    <div class="invalid-feedback">
+                        {{ shipping_form.city.errors }}
+                    </div>
+                    {% endif %}
                 </div>
             </div>
             <div class="form-group row">
-                <label for="country" class="col-sm-2 col-form-label">Country</label>
-                <div class="col-sm-2">
-                    <input type="text" readonly class="form-control-plaintext" id="country"
-                        value="{{ profile.email }}">
+                <div class="col-sm-2 col-form-label">{{ shipping_form.country.label_tag }}</div>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control {% if shipping_form.country.errors %}is-invalid{% endif %}"
+                        id="id_country" name="country" value="{{ shipping_form.country.value|default:'' }}" required>
+                    {% if shipping_form.country.errors %}
+                    <div class="invalid-feedback">
+                        {{ shipping_form.country.errors }}
+                    </div>
+                    {% endif %}
                 </div>
             </div>
+            <button class="btn btn-success" type="submit">Save changes</button>
         </form>
-
     </div>
 </div>
 {% endblock %}
