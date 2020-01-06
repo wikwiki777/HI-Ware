@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
+from accounts.models import ShippingDetails
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 
@@ -42,3 +43,10 @@ class UserRegistrationForm(UserCreationForm):
             raise ValidationError("Passwords must match")
 
         return password2
+
+
+class ShippingDetailsForm(forms.ModelForm):
+    class Meta:
+        model = ShippingDetails
+        fields = ('street_address1', 'street_address2',
+                  'postcode', 'city', 'country')
