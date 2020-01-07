@@ -12,7 +12,7 @@ import stripe
 stripe.api_key = settings.STRIPE_SECRET
 
 
-@login_required(login_url="/accounts/login/")
+@login_required(login_url="/accounts/login")
 def checkout(request):
     if request.method == "POST":
         order_form = OrderForm(request.POST)
@@ -46,7 +46,7 @@ def checkout(request):
                 messages.error(request, "Your card was declined!")
 
             if customer.paid:
-                messages.error(request, "You have successfully paid")
+                messages.success(request, "You have successfully paid")
                 request.session['cart'] = {}
                 return redirect(reverse('products'))
             else:
