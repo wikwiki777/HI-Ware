@@ -35,7 +35,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = development
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["wickz-hiware.herokuapp.com"]
 
 
 # Application definition
