@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'accounts',
     'products',
     'cart',
+    'checkout',
     'django.contrib.admindocs',
     'django.contrib.postgres',
 ]
