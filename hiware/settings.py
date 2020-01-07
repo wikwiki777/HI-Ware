@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'accounts',
     'products',
     'cart',
+    'checkout',
     'django.contrib.admindocs',
     'django.contrib.postgres',
 ]
@@ -159,3 +160,7 @@ MEDIA_URL = '/media/'
 
 # Send email to backend in console
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Stripe api secret keys
+STRIPE_SECRET = os.getenv("STRIPE_SECRET")
+STRIPE_PUBLISHABLE = os.getenv("STRIPE_PUBLISHABLE")
