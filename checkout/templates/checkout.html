@@ -1,5 +1,14 @@
 {% extends "base.html" %}
 {% block page_title %}HI-Ware: High-End PC Hardware{% endblock %}
+{% block foot_js %}
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript">
+    //<![CDATA[
+        Stripe.publishableKey = '{{ publishable }}';
+    //]]>
+</script>
+<script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
+{% endblock %}
 {% block content %}
 <div class="row mt-3">
     <div class="col-md-6 mx-5 mt-0">
@@ -47,7 +56,27 @@
         <div class="col align-self-center ml-5">
             <h3 class="title is-4">Total</h3>
             <h4 class="subtitle is-4"><i class="fas fa-euro-sign"></i>{{ total }}</h4>
-            <a href="{% url 'checkout' %}" class="button is-warning">Checkout <i class="far fa-arrow-alt-circle-right"></i></a>
+            <a href="#" class="button is-warning">Checkout <i class="far fa-arrow-alt-circle-right"></i></a>
         </div>
     </div>
+    <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
+        <legend>Payment Details</legend>
+    
+        <div id="credit-card-errors" style="display: none;">
+            <div id="alert-message block-message error" id="stripe-error-message"></div>
+        </div>
+    
+        <div class="form-group col-md-6">
+            {{ order_form }}
+        </div>
+    
+        <div class="form-group col-md-6">
+            {{ payment_form }}
+        </div>
+    
+        {% csrf_token %}
+        <div class="form-group col-md-12">
+            <input class=" btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+        </div>
+    </form>
 {% endblock %}
