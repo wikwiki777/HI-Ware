@@ -27,19 +27,16 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
             <ul class="navbar-nav text-right">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#"><i class="fas fa-home"></i></a>
+                    <a class="nav-link" href="{% url 'index' %}"><i class="fas fa-home"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Motherboards</a>
+                    <a class="nav-link" href="{% url 'motherboards' %}">Motherboards</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Processors</a>
+                    <a class="nav-link" href="{% url 'processors' %}">Processors</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Graphics Cards</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Cases</a>
+                    <a class="nav-link" href="{% url 'graphics' %}">Graphics Cards</a>
                 </li>
             </ul>
         </div>
