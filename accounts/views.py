@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, reverse
-from accounts.forms import UserLoginForm, UserRegistrationForm
+from accounts.forms import UserLoginForm, UserRegistrationForm, ShippingDetailsForm
 from django.contrib.auth.models import User
 from django.contrib import auth, messages
 
@@ -22,8 +22,8 @@ def login(request):
                 messages.success(request, "You are logged in")
             else:
                 messages.error(request, "Incorrect Username or Password.")
-                # Consider usage for more descriptive feedback to user
-                # login_form.add_error("password", "Incorrect Username Password combination")
+# Consider usage for more descriptive feedback to user
+# login_form.add_error("password", "Incorrect Username Password combination")
 
     else:
         login_form = UserLoginForm()
@@ -50,7 +50,24 @@ def registration(request):
 def profile(request):
     """Render the profile page"""
     user = User.objects.get(email=request.user.email)
-    return render(request, "profile.html", {"profile": user})
+
+    # update shipping information
+    if request.method == 'POST':
+        user_form = UserRegistrationForm(request.POST, instance=request.user)
+        shipping_form = ShippingDetailsForm(
+            request.POST, instance=request.user.shippingdetails)
+        if shipping_form.is_valid():
+            shipping_form.save()
+            messages.success(request, 'Your profile was successfully updated')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        user_form = UserRegistrationForm(instance=request.user)
+        shipping_form = ShippingDetailsForm(
+            instance=request.user.shippingdetails)
+
+    return render(request, "profile.html", {"profile": user,
+                                            "user_form": user_form, "shipping_form": shipping_form})
 
 
 def logout(request):

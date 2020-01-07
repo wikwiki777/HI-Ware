@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_title %}HI-Ware: High-End PC Hardware{% endblock %}
+{% block foot_js %}
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript">
+    //<![CDATA[
+    Stripe.publishableKey = '{{ publishable }}';
+    //]]>
+</script>
+<script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
+{% endblock %}
+{% block content %}
+<div class="row mt-3">
+    <div class="col-md-6 mx-5 mt-0">
+        <h3>Items in Cart</h3>
+        <ul class="list-unstyled border">
+            {% for item in cart_items %}
+            <li class="media border">
+                <img src="{{MEDIA_URL}}{{item.product.images}}" class="mr-3 w-25" alt="product_image"
+                    data-toggle="modal" data-target="#modal{{item.product.id}}">
+                <div class="media-body my-auto">
+                    <h5 class="mt-0 mb-1">{{item.product.brand}} {{item.product.model}}</h5>
+                    <span><p>{{item.product.description}}</p></span>
+                    <form method="POST" action="{% url 'adjust_cart' item.id %}" class="col-md-6">
+                        {% csrf_token %}
+                        <div class="input-group input-group-sm mb-3">
+                            <h5 class="mr-5">{{item.product.price}} EUR</h5>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">Qty</span>
+                            </div>
+                            <input type="number" name="quantity" class="form-control text-center"
+                                aria-label="quantity_input" aria-describedby="inputGroup-sizing-sm" min="0" max="10"
+                                value="{{item.quantity}}">
+                            <div class="input-group-append">
+                                <button class="btn btn-success" type="submit" id="button-addon2">Amend</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </li>
+            <!-- Modal -->
+            <div class="modal fade" id="modal{{item.product.id}}" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <img src="{{MEDIA_URL}}{{item.product.images}}" class="img-fluid" alt="...">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col align-self-center ml-5">
+            <h3 class="title is-4">Total</h3>
+            <h4 class="subtitle is-4"><i class="fas fa-euro-sign"></i>{{ total }}</h4>
+        </div>
+    </div>
+</div>
+<div class="row ml-3">
+    <div class="col-12">
+        <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
+            <legend>Payment Details</legend>
+            <div id="credit-card-errors" style="display: none;">
+                <div id="alert-message block-message error" id="stripe-error-message"></div>
+            </div>
+            <div class="form-group col-md-6">
+                    <!-- full name -->
+                    {{ order_form.full_name.label_tag }}
+                    <input type="text" class="form-control {% if order_form.full_name.errors %}is-invalid{% endif %}"
+                      id="id_full_name" name="full_name" value="{{ order_form.full_name.value|default:'' }}" required>
+                    {% if order_form.full_name.errors %}
+                    <div class="invalid-feedback">
+                      {{ order_form.full_name.errors }}
+                    </div>
+                    {% endif %}
+                    <!-- address 1 -->
+                    {{ order_form.street_address1.label_tag }}
+                    <input type="text" class="form-control {% if order_form.street_address1.errors %}is-invalid{% endif %}"
+                      id="id_street_address1" name="street_address1" value="{{ order_form.street_address1.value|default:'' }}" required>
+                    {% if order_form.street_address1.errors %}
+                    <div class="invalid-feedback">
+                      {{ order_form.street_address1.errors }}
+                    </div>
+                    {% endif %}
+                    <!-- address 2 -->
+                    {{ order_form.street_address2.label_tag }}
+                    <input type="text" class="form-control {% if order_form.street_address2.errors %}is-invalid{% endif %}"
+                      id="id_street_address2" name="street_address2" value="{{ order_form.street_address2.value|default:'' }}" required>
+                    {% if order_form.street_address2.errors %}
+                    <div class="invalid-feedback">
+                      {{ order_form.street_address2.errors }}
+                    </div>
+                    {% endif %}
+                    <!-- postcode -->
+                    {{ order_form.postcode.label_tag }}
+                    <input type="text" class="form-control {% if order_form.postcode.errors %}is-invalid{% endif %}"
+                    id="id_city" name="postcode" value="{{ order_form.postcode.value|default:'' }}" required>
+                    {% if order_form.postcode.errors %}
+                    <div class="invalid-feedback">
+                    {{ order_form.postcode.errors }}
+                    </div>
+                    {% endif %}
+                    <!-- city -->
+                    {{ order_form.city.label_tag }}
+                    <input type="text" class="form-control {% if order_form.city.errors %}is-invalid{% endif %}"
+                      id="id_city" name="city" value="{{ order_form.city.value|default:'' }}" required>
+                    {% if order_form.city.errors %}
+                    <div class="invalid-feedback">
+                      {{ order_form.city.errors }}
+                    </div>
+                    {% endif %}
+                    <!-- country -->
+                    {{ order_form.country.label_tag }}
+                    <input type="text" class="form-control {% if order_form.country.errors %}is-invalid{% endif %}"
+                        id="id_country" name="country" value="{{ order_form.country.value|default:'' }}" required>
+                    {% if order_form.country.errors %}
+                    <div class="invalid-feedback">
+                        {{ order_form.country.errors }}
+                    </div>
+                    {% endif %} 
+            </div>
+            <div class="form-group col-md-6">
+                {{ payment_form.as_p }}
+            </div>
+            {% csrf_token %}
+            <div class="form-group col-md-12">
+                <input class=" btn btn-primary" id="submit_payment_btn" name="commit" type="submit"
+                    value="Submit Payment">
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

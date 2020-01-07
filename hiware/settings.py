@@ -49,6 +49,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'products',
+    'cart',
+    'checkout',
+    'django.contrib.admindocs',
+    'django.contrib.postgres',
 ]
 
 MIDDLEWARE = [
@@ -74,6 +78,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
+                'cart.contexts.cart_contents',
             ],
         },
     },
@@ -146,5 +152,15 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
+# Media directory and url
+# https://docs.djangoproject.com/en/3.0/ref/settings/#std:setting-MEDIA_ROOT
+
+MEDIA_ROOT = 'media/'
+MEDIA_URL = '/media/'
+
 # Send email to backend in console
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Stripe api secret keys
+STRIPE_SECRET = os.getenv("STRIPE_SECRET")
+STRIPE_PUBLISHABLE = os.getenv("STRIPE_PUBLISHABLE")
