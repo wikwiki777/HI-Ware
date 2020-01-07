@@ -172,7 +172,7 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.0/ref/settings/#std:setting-MEDIA_ROOT
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = "https:/" + AWS_S3_CUSTOM_DOMAIN + '/media/'
+MEDIA_URL = "https://" + AWS_S3_CUSTOM_DOMAIN + '/media/'
 MEDIAFILES_LOCATION = 'media'
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
