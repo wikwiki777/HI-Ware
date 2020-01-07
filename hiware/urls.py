@@ -21,8 +21,8 @@ from cart import urls as urls_cart
 from checkout import urls as urls_checkout
 # Only used in Dev
 # https://docs.djangoproject.com/en/3.0/howto/static-files/#serving-files-uploaded-by-a-user-during-development
-from django.conf import settings
-from django.conf.urls.static import static
+# from django.conf import settings
+# from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -38,4 +38,5 @@ urlpatterns = [
     path('accounts/', include(accounts_urls)),
     path('cart/', include(urls_cart)),
     path('checkout/', include(urls_checkout)),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+# + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
