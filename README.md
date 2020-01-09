@@ -71,9 +71,6 @@ i should be able to amend it.
 so that the site owner and other potential customers know how satisfied i am
 or not.
 
-- As a Customer, i want to select a payment method<br>
-so that i can choose how to pay for the product i.e. cc, paypal, ideal.
-
 - As a Admin, i want to add products<br>
 so that i can add new products the customer is able to buy.
 
@@ -94,9 +91,9 @@ so that i can add/remove or update product information.
 
 Modules/Frameworks:
 
-- Django2
-- Bootstrap
-- Mollie
+- Django3
+- Bootstrap4
+- Stripe
 
 ## Database
 ### Postgresql
@@ -108,16 +105,16 @@ Tables in db:
 - Product
 - BaseProduct
 - Order
-- Rating
 
 
-![ResponsiveView](https://raw.githubusercontent.com/wickyakloe/HI-Ware/master/assets/hiware_erm.png "HI-Ware Database ERM")
+![ResponsiveView](https://raw.githubusercontent.com/wickyakloe/HI-Ware/master/assets/djappmodels.png "HI-Ware Database ERM")
 
+Generated using
+[django-extensions](https://github.com/django-extensions/django-extensions)
 
 ## Testing
 
-Automated tests of:
-Models, Views, Forms Tests
+View the test coverage [here]((https://wickyakloe.github.io/HI-Ware/assets/htmlcov/))
 
 ## Deployment
 
@@ -155,14 +152,25 @@ DEVELOPMENT=1
 
 # settings.py - Secret key
 # generate one here https://miniwebtool.com/django-secret-key-generator/
-SECRET_KEY="3(0c*ty9q5#53x_d2uo6+a1rkf@d%(ru_65uqfodn!es^r9dzc"
+SECRET_KEY=""
 
-# settings.py - DEV DB
-# replace i.e. <username> with actual value
-DEV_DATABASE_URL="postgres://<username>:<password>@<ip>:<port>/<dbname>"
+# settings.py
+# Dev DB
+DEV_DATABASE_URL="postgres://"
+# Prod DB
+DATABASE_URL="postgres://"
 
-# settings.py - PROD DB
-PROD_DATABASE_URL=""
+# Stripe api secret key - Copy from your account
+STRIPE_SECRET=""
+STRIPE_PUBLISHABLE =""
+
+# AWS S3 - - Copy from your account
+AWS_SECRET_KEY_ID=""
+AWS_SECRET_ACCESS_KEY=""
+
+# Email - - Copy from your account
+EMAIL_ADDRESS=""
+EMAIL_PASSWORD=""
 ```
 
 - Migrate with `./manage.py migrate`
