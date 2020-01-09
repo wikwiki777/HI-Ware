@@ -105,7 +105,7 @@ if development:
     }
 else:
     DATABASES = {
-        'default': dj_database_url.parse(os.getenv("PROD_DATABASE_URL"))
+        'default': dj_database_url.parse(os.getenv("DATABASE_URL"))
     }
 
 # Password validation
