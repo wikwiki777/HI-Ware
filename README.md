@@ -122,6 +122,21 @@ Models, Views, Forms Tests
 ## Deployment
 
 ### Heroku
+This application is deployed to heroku here [https://wickz-hiware.herokuapp.com/](https://wickz-hiware.herokuapp.com/).
+
+When deploying to heroku use the following config vars
+
+| Variable        |
+| --------------- |
+|AWS_SECRET_ACCESS_KEY|
+|AWS_SECRET_KEY_ID|
+|DATABASE_URL| 
+|DISABLE_COLLECTSTATIC| 
+|EMAIL_ADDRESS| 
+|EMAIL_PASSWORD|
+|SECRET_KEY|
+|STRIPE_PUBLISHABLE|
+|STRIPE_SECRET|
 
 ### Local
 - Clone this repo `git clone https://github.com/wickyakloe/HI-Ware.git`
