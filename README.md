@@ -114,7 +114,7 @@ Generated using
 
 ## Testing
 
-View the test coverage [here]((https://wickyakloe.github.io/HI-Ware/assets/htmlcov/))
+View the test coverage [here](https://wickyakloe.github.io/HI-Ware/assets/htmlcov/)
 
 ## Deployment
 
