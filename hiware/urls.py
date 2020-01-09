@@ -16,7 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from accounts import urls as accounts_urls
-from products import views
+from products import urls as products_urls
+from products.views import index
 from cart import urls as urls_cart
 from checkout import urls as urls_checkout
 # Only used in Dev
@@ -28,13 +29,8 @@ from checkout import urls as urls_checkout
 urlpatterns = [
     path('admin/doc/', include('django.contrib.admindocs.urls')),
     path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
-    path('products/', views.products, name='products'),
-    path('products/motherboards/', views.products, name='motherboards'),
-    path('products/processors/', views.products, name='processors'),
-    path('products/graphics/', views.products, name='graphics'),
-    path('products/<int:id>/', views.product_details, name='product_details'),
-    path('search/', views.search_all, name='search'),
+    path('', index, name='index'),
+    path('products/', include(products_urls)),
     path('accounts/', include(accounts_urls)),
     path('cart/', include(urls_cart)),
     path('checkout/', include(urls_checkout)),
