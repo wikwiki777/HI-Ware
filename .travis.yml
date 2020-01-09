@@ -7,6 +7,6 @@ services:
   - postgresql
 before_script:
   - psql -c 'create database hiware;' -U postgres
-  - export PROD_DATABASE_URL="postgres://postgres@localhost:5432/hiware"
+  - export DATABASE_URL="postgres://postgres@localhost:5432/hiware"
 script:
   - SECRET_KEY="whatever" ./manage.py test
