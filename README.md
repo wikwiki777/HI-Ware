@@ -71,9 +71,6 @@ i should be able to amend it.
 so that the site owner and other potential customers know how satisfied i am
 or not.
 
-- As a Customer, i want to select a payment method<br>
-so that i can choose how to pay for the product i.e. cc, paypal, ideal.
-
 - As a Admin, i want to add products<br>
 so that i can add new products the customer is able to buy.
 
@@ -111,8 +108,10 @@ Tables in db:
 - Rating
 
 
-![ResponsiveView](https://raw.githubusercontent.com/wickyakloe/HI-Ware/master/assets/hiware_erm.png "HI-Ware Database ERM")
+![ResponsiveView](https://raw.githubusercontent.com/wickyakloe/HI-Ware/master/assets/djappmodels.png "HI-Ware Database ERM")
 
+Generated using
+[django-extensions](https://github.com/django-extensions/django-extensions)
 
 ## Testing
 
