@@ -12,8 +12,7 @@ interested in purchasing High-End computer hardware.
 Table of Contents:
 
 - [Features](#features)
-- [UX](#ux)
-  - [Front-End Mockup](#front-end-mockup)
+- [UX/UI](#ux)
 - [Database](#database)
   - [Postgresql](#mongodb)
     - [Creating the Database](#creating-the-database)
@@ -45,6 +44,7 @@ Site users:
 
 Stories:
 
+DONE:
 - As a Visitor, i want to browse all products<br>
 so that i can get information on what i'm looking for.
 
@@ -67,15 +67,16 @@ so that i can view or purchase them now or later.
 so that i can see if my information is correct, if its not correct
 i should be able to amend it.
 
-- As a Customer, i want to rate and review a product<br>
-so that the site owner and other potential customers know how satisfied i am
-or not.
-
 - As a Admin, i want to add products<br>
 so that i can add new products the customer is able to buy.
 
 - As a Admin, i want to amend products<br>
 so that i can add/remove or update product information.
+
+TODO:
+- As a Customer, i want to rate and review a product<br>
+so that the site owner and other potential customers know how satisfied i am
+or not.
 
 ## UX
 
@@ -88,6 +89,7 @@ so that i can add/remove or update product information.
 - Javascript
 - Python3
 - Postgresql
+- AmazonS3
 
 Modules/Frameworks:
 
@@ -179,4 +181,7 @@ EMAIL_PASSWORD=""
 
 ## Credits
 - Thanks to uxwing.com for providing the free [icon](https://uxwing.com/microchip-icon/)
+- codeinstitute.net
 ## Media
+- Media and prices are related to products are fictional and the content
+you see is from the manufacturer site.
