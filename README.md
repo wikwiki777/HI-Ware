@@ -3,7 +3,7 @@
 # HI-Ware
 ### <i>Webshop for High-End Computer Hardware</i>
 
-![ResponsiveView](https://link.to.mobile.web.preview.image "Mobile and Desktop preview")
+![ResponsiveView](https://raw.githubusercontent.com/wickyakloe/HI-Ware/master/assets/previewimage.png "Mobile and Desktop preview")
 
 ## Goal:
 Use Django2 to create a website for anyone who is<br>
