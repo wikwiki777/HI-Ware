@@ -6,7 +6,7 @@
 ![ResponsiveView](https://raw.githubusercontent.com/wickyakloe/HI-Ware/master/assets/previewimage.png "Mobile and Desktop preview")
 
 ## Goal:
-Use Django2 to create a website for anyone who is<br>
+Use Django3 to create a website for anyone who is<br>
 interested in purchasing High-End computer hardware.
 
 Table of Contents:
@@ -77,6 +77,9 @@ TODO:
 - As a Customer, i want to rate and review a product<br>
 so that the site owner and other potential customers know how satisfied i am
 or not.
+
+- As a Customer, i want my shipping details prefilled if they
+are set in my profile.
 
 ## UX
 
