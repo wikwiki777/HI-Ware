@@ -54,7 +54,6 @@ INSTALLED_APPS = [
     'storages',
     'django.contrib.admindocs',
     'django.contrib.postgres',
-    'django_extensions',
 ]
 
 MIDDLEWARE = [
