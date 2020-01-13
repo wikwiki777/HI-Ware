@@ -138,10 +138,13 @@ When deploying to heroku use the following config vars
 |STRIPE_SECRET|
 
 ### Local
+
 - Clone this repo `git clone https://github.com/wickyakloe/HI-Ware.git`
 or [download](https://github.com/wickyakloe/HI-Ware/archive/master.zip) and unzip into a directory or python3 virtualenv
 
 - Install the project dependancies with `pip install -r requirements.txt`
+Note u may encounter errors with psycopg2 and django-extensions
+make sure u install the dependencies of these packages and then reinstall with the above command.
 
 - Create the following `.env` file in the root directory
 
