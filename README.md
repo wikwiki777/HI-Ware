@@ -3,17 +3,16 @@
 # HI-Ware
 ### <i>Webshop for High-End Computer Hardware</i>
 
-![ResponsiveView](https://link.to.mobile.web.preview.image "Mobile and Desktop preview")
+![ResponsiveView](https://raw.githubusercontent.com/wickyakloe/HI-Ware/master/assets/previewimage.png "Mobile and Desktop preview")
 
 ## Goal:
-Use Django2 to create a website for anyone who is<br>
+Use Django3 to create a website for anyone who is<br>
 interested in purchasing High-End computer hardware.
 
 Table of Contents:
 
 - [Features](#features)
-- [UX](#ux)
-  - [Front-End Mockup](#front-end-mockup)
+- [UX/UI](#ux)
 - [Database](#database)
   - [Postgresql](#mongodb)
     - [Creating the Database](#creating-the-database)
@@ -45,6 +44,7 @@ Site users:
 
 Stories:
 
+DONE:
 - As a Visitor, i want to browse all products<br>
 so that i can get information on what i'm looking for.
 
@@ -67,15 +67,19 @@ so that i can view or purchase them now or later.
 so that i can see if my information is correct, if its not correct
 i should be able to amend it.
 
-- As a Customer, i want to rate and review a product<br>
-so that the site owner and other potential customers know how satisfied i am
-or not.
-
 - As a Admin, i want to add products<br>
 so that i can add new products the customer is able to buy.
 
 - As a Admin, i want to amend products<br>
 so that i can add/remove or update product information.
+
+TODO:
+- As a Customer, i want to rate and review a product<br>
+so that the site owner and other potential customers know how satisfied i am
+or not.
+
+- As a Customer, i want my shipping details prefilled if they
+are set in my profile.
 
 ## UX
 
@@ -88,6 +92,7 @@ so that i can add/remove or update product information.
 - Javascript
 - Python3
 - Postgresql
+- AmazonS3
 
 Modules/Frameworks:
 
@@ -136,10 +141,13 @@ When deploying to heroku use the following config vars
 |STRIPE_SECRET|
 
 ### Local
+
 - Clone this repo `git clone https://github.com/wickyakloe/HI-Ware.git`
 or [download](https://github.com/wickyakloe/HI-Ware/archive/master.zip) and unzip into a directory or python3 virtualenv
 
 - Install the project dependancies with `pip install -r requirements.txt`
+Note u may encounter errors with psycopg2 and django-extensions
+make sure u install the dependencies of these packages and then reinstall with the above command.
 
 - Create the following `.env` file in the root directory
 
@@ -179,4 +187,7 @@ EMAIL_PASSWORD=""
 
 ## Credits
 - Thanks to uxwing.com for providing the free [icon](https://uxwing.com/microchip-icon/)
+- codeinstitute.net
 ## Media
+- Media and prices are related to products are fictional and the content
+you see is from the manufacturer site.
