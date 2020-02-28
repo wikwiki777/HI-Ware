@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block page_title %}HI-Ware: High-End PC Hardware{% endblock %}
+{% block content %}
+<div class="row mt-3">
+    <div class="col-md-2 mx-5 mt-0">
+        {% for cat in categories %}
+        <ul class="list-group mt-1">
+            <li class="list-group-item d-flex justify-content-between align-items-center 
+                       btn btn-outline-danger font-weight-bolder
+                       {% if cat.name|lower in request.path %}
+                       active
+                       {% endif %}
+                       ">
+                <a href="/products/{{cat.name|lower}}" class="text-decoration-none text-dark">{{ cat.name }}</a>
+              <span class="badge badge-dark badge-pill">
+                {% if cat.name == "Motherboards" %}
+                {{ motherboards.count }}
+                {% elif cat.name == "Processors" %}
+                {{ processors.count }}
+                {% else %}
+                {{ graphics.count }}
+                {% endif %}      
+            </span>
+            </li>
+          </ul>
+        {% endfor %}
+    </div>
+    <div class="container ml-5">
+        <h2>
+            {% if request.path|cut:"/products/" == "" %}
+            All Products
+            {% elif "search" in request.path %}
+            Search results for "{{ request.get_full_path|cut:"/search/?search="}}"
+            {% else %}
+            {{ request.path|cut:"/products/"|cut:"/"|capfirst}}
+            {% endif %}
+        </h2>
+        <div class="row">
+            {% for product in products %}
+            <div class="col-md-4">
+                <div class="card-header text-center bg-warning pb-0">
+                    <h4 class="font-weight-bolder">{{ product.price }} EUR</h4>
+                </div>
+                <div class="card mb-4 shadow text-white" style="background-color: black;">
+                    <img class="card-img" src="{{ MEDIA_URL }}{{ product.images }}" alt="product_image">
+                    <div class="card-body h-25">
+                        <h5 class="card-title">{{ product.brand }}</h5>
+                        <h6 class="card-title">{{ product.model }}</h6>
+                        <p class="card-text">
+                            {{ product.description | truncatewords:15}}
+                        </p>
+                        <a href="{% url 'product_details' product.id %}" class="btn btn-danger btn-block ml-0"><strong>View</strong></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+{% endblock %}

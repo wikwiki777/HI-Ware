@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block page_title %}HI-Ware: High-End PC Hardware{% endblock %}
+{% block content %}
+<div class="row mt-3">
+    <div class="col-md-6 mx-5 mt-0">
+        <h3>Items in Cart</h3>
+        <ul class="list-unstyled border">
+            {% for item in cart_items %}
+            <li class="media border">
+                <img src="{{MEDIA_URL}}{{item.product.images}}" class="mr-3 w-25" alt="product_image"
+                    data-toggle="modal" data-target="#modal{{item.product.id}}">
+                <div class="media-body my-auto">
+                    <h5 class="mt-0 mb-1">{{item.product.brand}} {{item.product.model}}</h5>
+                    <span><p>{{item.product.description}}</p></span>
+                    <form method="POST" action="{% url 'adjust_cart' item.id %}" class="col-md-6">
+                        {% csrf_token %}
+                        <div class="input-group input-group-sm mb-3">
+                            <h5 class="mr-5">{{item.product.price}} EUR</h5>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">Qty</span>
+                            </div>
+                            <input type="number" name="quantity" class="form-control text-center"
+                                aria-label="quantity_input" aria-describedby="inputGroup-sizing-sm" min="0" max="10"
+                                value="{{item.quantity}}">
+                            <div class="input-group-append">
+                                <button class="btn btn-success" type="submit" id="button-addon2">Amend</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </li>
+            <!-- Modal -->
+            <div class="modal fade" id="modal{{item.product.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <img src="{{MEDIA_URL}}{{item.product.images}}" class="img-fluid" alt="...">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col align-self-center ml-5">
+            <h3 class="title is-4">Total</h3>
+            <h4 class="subtitle is-4"><i class="fas fa-euro-sign"></i>{{ total }}</h4>
+            <a href="{% url 'checkout' %}" class="btn btn-danger">Checkout <i class="far fa-arrow-alt-circle-right"></i></a>
+        </div>
+    </div>
+{% endblock %}

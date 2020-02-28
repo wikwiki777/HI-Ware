@@ -1,0 +1,6 @@
+/* Logo in navbar */
+nav img {
+    width: 2rem;
+    height: 2rem;
+    filter: invert(1)
+}
